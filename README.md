@@ -101,4 +101,5 @@ $phar->compressFiles(Phar::GZ);
 
 ## 참고
 주소 DB 구축 코드는 아래의 링크를 클릭하여 확인한다. 여기서는 오직 Phar 파일 빌드에 대해서만 언급한다.
-[juso_db.md][주소DB 구축]
+
+[주소DB 구축](juso_db.md)
