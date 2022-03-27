@@ -16,16 +16,17 @@ phar.readonly = Off
 ```
 
 ## 프로젝트 생성
-나는 아래와 같이 프로젝트 폴더를 생성했다.
+나는 아래와 같이 프로젝트 폴더를 생성했다. 실재 응용프로그램은 app 폴더 안에 위치해 있다.
 ```
-project-folter
-  +--app
-     +--Lib
-        +--CommandLineParse.php
-        +--Database.php
-        +--util.php
-     +--main.php
-  +--build.php
+project-folder
+├── app
+│   ├── Lib
+│   │   ├── CommandLineParse.php
+│   │   ├── Database.php
+│   │   └── util.php
+│   ├── main.php
+│   └── Schema
+└── build
 ```
 
 # 파일 생성을 위한 빌드 프로그램
