@@ -12,7 +12,6 @@ try {
     $defaultStub = $phar->createDefaultStub('main.php');
     $phar->buildFromDirectory(__DIR__ . '/app');
     $stub = "#!/usr/bin/env php \n" . $defaultStub;
-
     $phar->setStub($stub);
     $phar->stopBuffering();
 
