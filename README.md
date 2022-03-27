@@ -24,8 +24,7 @@ project-folder
 │   │   ├── CommandLineParse.php
 │   │   ├── Database.php
 │   │   └── util.php
-│   ├── main.php
-│   └── Schema
+│   └── main.php
 └── build
 ```
 
@@ -83,4 +82,19 @@ $phar->startBuffering();
 압축된 Phar 파일의 포함된 모드가 호출되어 정상 실행되기 위한 부트로더를 아래의 명령으로 생성한다. 아래의 명령으로 ```phar``` 파일의 압축을 해제하고 지정된 파일일 include하는 코드를 생성한다.
 ```php
 $defaultStub = $phar->createDefaultStub('main.php');
+```
+
+## 응용프로그램 폴더를 압축파일에 포함 및 부트로더 설정
+아래와 같이 ```app``` 펄더를 압축파일에 포함한다. 그리고 부트로더를 포함하여 실행시 응용프로그램이 실행되도록 한다.
+```php
+$phar->buildFromDirectory(__DIR__ . '/app');
+$stub = "#!/usr/bin/env php \n" . $defaultStub;
+$phar->setStub($stub);
+$phar->stopBuffering();
+```
+
+## 압축
+아래와 같은 코드로 ```phar``` 확장자를 가진 압축파일을 생성한다.
+```php
+$phar->compressFiles(Phar::GZ);
 ```
