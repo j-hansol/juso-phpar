@@ -8,11 +8,10 @@ $host = $parse->get('h');
 $user = $parse->get('u');
 $password = $parse->get('p');
 $database = $parse->get('d');
-$iconv = $parse->get('c') == 'true';
 $table = $parse->get('t') ?? 'juso';
 
 if( !$host || !$user || !$password || !$database ) {
-    echo "Usage {$argv[0]} -h host_url -u user -p password -d database_name\n";
+    echo "Usage {$argv[0]} -h host_url -u user -p password -d database_name -t table_name\n";
     exit(-1);
 }
 
@@ -30,7 +29,7 @@ if( !$db->isAble() ) {
     exit(-1);
 }
 
-$sql = "create table juso (
+$sql = "create table $table (
     zipcode         varchar(5)      not null,
     sido            varchar(20)     not null,
     en_sido         varchar(40),
@@ -89,7 +88,6 @@ foreach( $targets as $file ) {
             $data = fgets($fd);
             $l_count++;
             if( strlen( $data ) <= 0 ) continue;
-            if( $iconv ) $c_data = iconv('MS949', 'UTF-8', $data);
             else $c_data = $data;
 
             if( !$c_data ) continue;
