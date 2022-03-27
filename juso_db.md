@@ -351,5 +351,19 @@ if( count( $buffer) > 0 ) {
 }
 ```
 
+### insert() 함수
+이 함수는 buffer에 저장된 데이터를 ```,``` 로 연결하여 데이터베이스에 저장한다.
+```php
+function insert( $db, $table, $array ) {
+    $sql = "insert into $table values " . implode(',', $array);
+    try {
+        $db->exec( $sql );
+        return count( $array );
+    } catch (Exception $e) {
+        return 0;
+    }
+}
+```
+
 ### 부수적인 것들
 그 외 처리 중인 파일명, 읽은 라인수, 추출 자료 수 등을 각 처리 후반에 출력하도록 해 두었다. 프로그램 흐름상 필요 없는 부분일 수는 있으나 실행 내용을 실시간으로 확인하기 위해 넣어 두었다.
