@@ -63,7 +63,7 @@ try {
 $phar_path = __DIR__ . "/build/juso.phar"
 ```
 
-## 기존 빌드 파링 및 폴더 삭제
+## 기존 빌드 파일 및 폴더 삭제
 빌드 폴더 및 빌드 과정에서 생성된 빌드된 파일과 임시파일과 폴더를 삭제한다.
 ```php
 if( !file_exists(__DIR__ . '/build') ) mkdir( __DIR__ . '/build' );
